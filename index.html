@@ -1,20 +1,348 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Sridhar on Github</title>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sridhar Raj Sampath Kumar</title>
+  <meta name="description" content="Payments & BNPL platform engineer. 15+ years building web platforms; Senior Software Engineer at PayPal working on Buy Now, Pay Later.">
+  <link rel="canonical" href="https://sridharrajs.github.io/">
+
+  <meta property="og:title" content="Sridhar Raj Sampath Kumar · Payments & BNPL Platform Engineer">
+  <meta property="og:description" content="15+ years building web platforms. Senior Software Engineer at PayPal, rebuilding the front-end platform behind Buy Now, Pay Later.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://sridharrajs.github.io/">
+  <meta property="og:image" content="https://sridhar.co/images/avatar.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@sridharrajs">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fbfaf8;
+      --surface: #ffffff;
+      --text: #3d3f42;
+      --heading: #16181b;
+      --muted: #6f7378;
+      --rule: #e6e3de;
+      --accent: #1f5fae;
+      --accent-soft: #e8f0fa;
+      --chip: #f1efeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #121315;
+        --surface: #1a1c1f;
+        --text: #c3c6ca;
+        --heading: #f2f3f4;
+        --muted: #8b9096;
+        --rule: #2a2d31;
+        --accent: #7db0ec;
+        --accent-soft: #1b2a3c;
+        --chip: #23262a;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #121315;
+      --surface: #1a1c1f;
+      --text: #c3c6ca;
+      --heading: #f2f3f4;
+      --muted: #8b9096;
+      --rule: #2a2d31;
+      --accent: #7db0ec;
+      --accent-soft: #1b2a3c;
+      --chip: #23262a;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      font-size: 16.5px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 2px; }
+
+    /* Hero */
+    .hero { padding: 3.5em 0 2.5em; }
+    .eyebrow {
+      display: inline-block;
+      font-size: .8em;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: .25em .8em;
+      margin-bottom: 1.1em;
+    }
+    h1 {
+      color: var(--heading);
+      font-size: clamp(2.1em, 6vw, 3.1em);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      margin: 0 0 .35em;
+    }
+    .tagline {
+      font-size: 1.2em;
+      color: var(--heading);
+      font-weight: 500;
+      margin: 0 0 .8em;
+      max-width: 34em;
+    }
+    .summary { margin: 0 0 1.6em; max-width: 38em; }
+
+    .cta { display: flex; flex-wrap: wrap; gap: .6em; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4em;
+      border: 1px solid var(--rule);
+      background: var(--surface);
+      color: var(--heading);
+      border-radius: 8px;
+      padding: .5em .95em;
+      font-weight: 600;
+      font-size: .93em;
+    }
+    .btn:hover { text-decoration: none; border-color: var(--accent); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+
+    .profiles { display: flex; flex-wrap: wrap; gap: .4em 1.4em; margin: .6em 0 0; padding: 0; list-style: none; font-weight: 600; }
+    .profiles a { display: inline-flex; align-items: center; gap: .45em; }
+
+    /* Metrics */
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 0 0 1em;
+    }
+    .metric { background: var(--surface); padding: 1.1em 1em; }
+    .metric .num {
+      display: block;
+      color: var(--heading);
+      font-size: 1.75em;
+      font-weight: 800;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -.01em;
+    }
+    .metric .label { display: block; color: var(--muted); font-size: .82em; line-height: 1.35; margin-top: .3em; }
+    @media (max-width: 620px) {
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Sections */
+    section { padding: 2.2em 0 .5em; }
+    h2 {
+      color: var(--heading);
+      font-size: .82em;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin: 0 0 1.2em;
+      display: flex;
+      align-items: center;
+      gap: .8em;
+    }
+    h2::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+
+    h3 { color: var(--heading); font-size: 1.08em; font-weight: 700; margin: 0; line-height: 1.3; }
+
+    /* Highlights */
+    .highlights { display: grid; gap: 1em; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 1.15em 1.25em;
+    }
+    .card p { margin: .4em 0 0; }
+
+    /* Experience */
+    .role {
+      display: grid;
+      grid-template-columns: 9.5em 1fr;
+      gap: .2em 1.5em;
+      padding: 1em 0;
+      border-top: 1px solid var(--rule);
+    }
+    .role:first-of-type { border-top: 0; padding-top: 0; }
+    .role .when { color: var(--muted); font-size: .88em; font-variant-numeric: tabular-nums; padding-top: .15em; }
+    .role .org { color: var(--muted); font-weight: 500; }
+    .role p { margin: .3em 0 0; }
+    @media (max-width: 620px) {
+      .role { grid-template-columns: 1fr; }
+    }
+
+    /* Skills */
+    .skills-langs { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; align-items: start; }
+    .skills { display: grid; gap: 1.1em; }
+    @media (max-width: 620px) {
+      .skills-langs { grid-template-columns: 1fr; }
+    }
+    .skills h3 { font-size: .95em; margin-bottom: .45em; }
+    .chips { display: flex; flex-wrap: wrap; gap: .35em; margin: 0; padding: 0; list-style: none; }
+    .chips li {
+      background: var(--chip);
+      border-radius: 6px;
+      padding: .12em .55em;
+      font-size: .86em;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: .4em;
+    }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1em; }
+    .projects .card { display: flex; flex-direction: column; }
+    .projects .card p { font-size: .95em; }
+    .badge {
+      display: inline-block;
+      vertical-align: .15em;
+      margin-left: .4em;
+      font-size: .66em;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: .2em .7em;
+    }
+    .writeup { display: inline-block; margin-top: .45em; font-size: .9em; font-weight: 600; align-self: flex-start; }
+    .stats { margin-top: auto; padding-top: .8em; color: var(--muted); font-size: .84em; font-variant-numeric: tabular-nums; }
+    .stats strong { color: var(--heading); font-weight: 700; }
+    .stats:has(.src) { display: flex; align-items: center; justify-content: space-between; gap: 1em; }
+    .tech { display: inline-flex; align-items: center; gap: .35em; vertical-align: middle; }
+    .logo {
+      width: 1em;
+      height: 1em;
+      flex-shrink: 0;
+      background: currentColor;
+      -webkit-mask: var(--icon) center / contain no-repeat;
+      mask: var(--icon) center / contain no-repeat;
+    }
+    .stats .links { display: inline-flex; gap: .6em; }
+    .stats .src { display: inline-flex; color: var(--muted); }
+    .stats .src:hover { color: var(--accent); }
+
+    /* Languages */
+    .langs { display: block; padding: .6em; }
+    .langs:hover { border-color: var(--accent); }
+    .langs img { display: block; width: 100%; max-width: 480px; height: auto; margin: 0 auto; }
+
+    /* Recognition */
+    .plain { margin: 0; padding-left: 1.1em; }
+    .plain li { margin: .35em 0; }
+
+    footer {
+      margin-top: 3em;
+      padding: 1.6em 0 3em;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: .88em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: .5em 1.5em;
+    }
+  </style>
 </head>
-
 <body>
-Hello World
-</body>
+  <div class="wrap">
+    <main>
+      <div class="hero">
+        <h1>Sridhar Raj Sampath&nbsp;Kumar</h1>
+        <ul class="profiles">
+          <li><a href="https://sridhar.co"><svg viewBox="0 0 16 16" width="1em" height="1em" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2.5l2.5 2.5L5.5 13H3v-2.5z"/><path d="M9.5 4l2.5 2.5"/></svg>https://sridhar.co</a></li>
+          <li><a href="https://github.com/sridharrajs"><i class="logo" style="--icon: url(https://cdn.jsdelivr.net/npm/simple-icons@15/icons/github.svg)" aria-hidden="true"></i>GitHub</a></li>
+          <li><a href="https://stackoverflow.com/users/978501/sridhar"><i class="logo" style="--icon: url(https://cdn.jsdelivr.net/npm/simple-icons@15/icons/stackoverflow.svg)" aria-hidden="true"></i>Stack Overflow</a></li>
+        </ul>
+      </div>
 
+
+      <section id="projects" aria-labelledby="proj-h">
+        <h2 id="proj-h">Open source works</h2>
+        <div class="projects">
+          <article class="card">
+            <h3>pin-tweet</h3>
+            <p>A Node utility that moves all your liked tweets to Pinboard.</p>
+            <a class="writeup" href="https://sridhar.co/pin-tweet-a-node-utility-to-move-your-liked-tweets-to-pinboard">Write-up →</a>
+            <div class="stats"><span><strong>8</strong> stars · <span class="tech"><i class="logo" style="--icon: url(https://cdn.jsdelivr.net/npm/simple-icons@15/icons/nodedotjs.svg)" aria-hidden="true"></i>Node.js</span></span><a class="src" href="https://github.com/sridharrajs/pin-tweet" aria-label="pin-tweet source on GitHub" title="Source on GitHub"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a></div>
+          </article>
+          <article class="card">
+            <h3>LokShaba2019</h3>
+            <p>With <a href="https://arunmozhi.in">@arunmozhi</a>, I crunched and visualised the 2019 Indian general election results within 24 hours.</p>
+            <div class="stats"><span><span class="tech"><i class="logo" style="--icon: url(https://cdn.jsdelivr.net/npm/simple-icons@15/icons/nodedotjs.svg)" aria-hidden="true"></i>Node.js</span> · data viz</span><span class="links"><a class="src" href="https://tecoholic.github.io/LokShaba2019/" aria-label="LokShaba2019 live site" title="Live site"><svg viewBox="0 0 16 16" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5l3-3"/><path d="M7.5 4.5l1-1a2.83 2.83 0 014 4l-1 1"/><path d="M8.5 11.5l-1 1a2.83 2.83 0 01-4-4l1-1"/></svg></a><a class="src" href="https://github.com/tecoholic/LokShaba2019" aria-label="LokShaba2019 source on GitHub" title="Source on GitHub"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a></span></div>
+          </article>
+          <article class="card">
+            <h3>OneBible</h3>
+            <p>An ad-free Bible app for Android, built in native Java.</p>
+            <a class="writeup" href="https://sridhar.co/announcing-tamil-bible-android-app">Write-up →</a>
+            <div class="stats"><span><strong>1,000+</strong> installs · <strong>4.6</strong> rating</span><a class="src" href="https://github.com/onebible/android.onebible.in" aria-label="OneBible Android source on GitHub" title="Source on GitHub"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a></div>
+          </article>
+          <article class="card">
+            <h3>Bible-Database <span class="badge">Contributor</span></h3>
+            <p>Cleaned up the Tamil Bible text: broken fonts, stray characters and verse corrections.</p>
+            <div class="stats"><span><strong>10</strong> merged PRs · <strong>337</strong> stars</span><a class="src" href="https://github.com/godlytalias/Bible-Database/pulls?q=is%3Apr+is%3Amerged+author%3Asridharrajs" aria-label="My merged pull requests to Bible-Database on GitHub" title="My merged PRs on GitHub"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a></div>
+          </article>
+          <article class="card">
+            <h3>Commonplace</h3>
+            <p>A static site for the quotes I keep, generated with Python.</p>
+            <a class="writeup" href="https://sridhar.co/weekly-updates/commonplace">Write-up →</a>
+            <div class="stats"><span><span class="tech"><i class="logo" style="--icon: url(https://cdn.jsdelivr.net/npm/simple-icons@15/icons/python.svg)" aria-hidden="true"></i>Python</span></span><span class="links"><a class="src" href="https://sridharrajs.github.io/commonplace/" aria-label="Commonplace live site" title="Live site"><svg viewBox="0 0 16 16" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5l3-3"/><path d="M7.5 4.5l1-1a2.83 2.83 0 014 4l-1 1"/><path d="M8.5 11.5l-1 1a2.83 2.83 0 01-4-4l1-1"/></svg></a><a class="src" href="https://github.com/sridharrajs/commonplace" aria-label="Commonplace source on GitHub" title="Source on GitHub"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a></span></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" aria-labelledby="skills-h">
+        <h2 id="skills-h">Skills &amp; languages</h2>
+        <div class="skills-langs">
+          <div class="skills">
+            <div>
+              <h3>Systems</h3>
+              <ul class="chips"><li>Distributed systems</li><li>APIs</li><li>Observability</li></ul>
+            </div>
+            <div>
+              <h3>Product</h3>
+              <ul class="chips"><li>Fintech</li><li>BNPL</li><li>Consumer applications</li></ul>
+            </div>
+            <div>
+              <h3>Tools</h3>
+              <ul class="chips"><li><i class="logo" style="--icon: url(https://cdn.jsdelivr.net/npm/simple-icons@15/icons/typescript.svg)" aria-hidden="true"></i>TypeScript</li><li><i class="logo" style="--icon: url(https://cdn.jsdelivr.net/npm/simple-icons@15/icons/react.svg)" aria-hidden="true"></i>React</li><li><i class="logo" style="--icon: url(https://cdn.jsdelivr.net/npm/simple-icons@15/icons/nextdotjs.svg)" aria-hidden="true"></i>Next.js</li><li><i class="logo" style="--icon: url(https://cdn.jsdelivr.net/npm/simple-icons@15/icons/nodedotjs.svg)" aria-hidden="true"></i>Node.js</li></ul>
+            </div>
+            <div>
+              <h3>Infrastructure</h3>
+              <ul class="chips"><li>AWS</li><li><i class="logo" style="--icon: url(https://cdn.jsdelivr.net/npm/simple-icons@15/icons/mysql.svg)" aria-hidden="true"></i>MySQL</li><li><i class="logo" style="--icon: url(https://cdn.jsdelivr.net/npm/simple-icons@15/icons/vercel.svg)" aria-hidden="true"></i>Vercel</li><li><i class="logo" style="--icon: url(https://cdn.jsdelivr.net/npm/simple-icons@15/icons/nginx.svg)" aria-hidden="true"></i>Nginx</li></ul>
+            </div>
+          </div>
+          <a class="card langs" href="https://github.com/sridharrajs">
+            <img src="https://raw.githubusercontent.com/sridharrajs/sridharrajs/main/profile/languages.svg" width="480" height="157" alt="Most used languages across my GitHub repositories" loading="lazy">
+          </a>
+        </div>
+      </section>
+    </main>
+
+  </div>
+</body>
 </html>
